@@ -6,4 +6,4 @@ Extra features added:
 
 1. Customized layout 
 2. Display polls with Bar chart (through Chart.js)
-3. 
+
