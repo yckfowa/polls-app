@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    h1 {
+        font-size: 35px;
+    {
+</style>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
 <div class="center-column">
     <h1>Results:</h1>
-    <h2>{{ question.question_text }}</h2>
+    <h3>{{ question.question_text }}</h3>
 
     <div>
         <canvas id="myChart" width="400" height="200"></canvas>
@@ -49,8 +54,7 @@ var myChart = new Chart(ctx, {
 });
     </script>
 
-
-    <a href="{% url 'polls:index' %}">Return to Poll</a>
+    <a class="btn btn-outline-secondary" href="{% url 'polls:index' %}">Return to Poll</a>
 
 </div>
 
