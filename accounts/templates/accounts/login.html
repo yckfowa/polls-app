@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <div class="center-column">
 	<h3>Login </h3>
             <form action="" method="POST">
@@ -15,7 +16,7 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
-                <p>Need an account? <a href="{% url 'register' %}">Register Here</a></p>
+                <p>Need an account? <a href="{% url 'accounts:register' %}">Register Here</a></p>
             </form>
         </div>
     </div>

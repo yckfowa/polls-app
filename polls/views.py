@@ -3,45 +3,15 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate,login,logout
+
 from .models import Choice, Question
-from .forms import CreateUserForm
+
 
 from django.template import loader
 
 
 def home(request):
     return render(request, 'home.html')
-
-def register(request):
-    form = CreateUserForm()
-
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-
-    context = {'form': form}
-    return render(request, 'register.html', context)
-
-
-
-def loginPage(request):
-
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-
-    context = {}
-    return render(request, 'login.html', context)
 
 
 class IndexView(generic.ListView):
@@ -57,7 +27,7 @@ class DetailView(generic.DetailView):
     template_name = 'polls/detail.html'
 
 
-class ResulsView(generic.DetailView):
+class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 

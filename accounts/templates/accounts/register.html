@@ -5,9 +5,7 @@
 
 <div class="center-column">
 
-
 <h2>Register form </h2>
-
 
 <form method='POST' action="">
      {% csrf_token %}
@@ -23,16 +21,11 @@
 
  {{form.password2.label}}<br>
 							{{form.password2}}<br>
-    <p>Already have an account? <a href="{% url 'loginPage' %}">Login Here</a></p>
-
-
-
-
+    <p>Already have an account? <a href="{% url 'accounts:loginPage' %}">Login Here</a></p>
 
     <input class="btn btn-success" type="submit" name="Create User">
 </form>
       </div>
-
 
 
 {%  endblock content %}
