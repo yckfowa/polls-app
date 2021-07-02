@@ -1,0 +1,32 @@
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #A49393;
+    margin-right: 20px;
+    text-align: center;
+
+  }
+
+  .nav-link{
+    color: #A49393;
+    padding: 2px;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Poll-Master</a>
+    <div class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <span class="hello-msg">Hello,{{request.user}}</span>
+            <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'accounts:loginPage' %}">Login</a>
+            <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+            {% endif %}
+        </div>
+  </div>
+</nav>
+

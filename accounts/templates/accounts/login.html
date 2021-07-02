@@ -3,25 +3,43 @@
 {% block content %}
 
 
-<div class="center-column">
-	<h3>Login </h3>
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-                <p>Need an account? <a href="{% url 'accounts:register' %}">Register Here</a></p>
-            </form>
+<style>
+    .login-form {
+
+        width:400px;
+		margin: 100px auto;
+		padding:60px;
+		background-color: #fff;
+		border-radius: 20px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+}
+
+
+
+</style>
+
+<div class="login-form">
+    <h3>Login</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p>Need an account? <a href="{% url 'accounts:register' %}">Register Here</a></p>
+
+    </form>
+
+    {% for message in messages %}
+    <p id="messages"> {{message}}</p>
+    {% endfor %}
 </div>
 
 
-	{% endblock %}
-</div>
+{% endblock %}

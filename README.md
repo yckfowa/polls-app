@@ -8,4 +8,5 @@ Extra features added:
 2. Display polls with Bar chart (through Chart.js)
 3. Create base.html to reduce duplicate codes
 4. Create home, register & login page 
+5. Certain pages are login_required 
 
